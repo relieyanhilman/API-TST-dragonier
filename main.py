@@ -1,6 +1,8 @@
 from typing import List
 
 from fastapi import Depends, FastAPI, HTTPException
+from pydantic import errors
+from pydantic.schema import schema
 from sqlalchemy.orm import Session
 
 import crud, models, schemas
