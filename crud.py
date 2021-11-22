@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from . import models, schemas
+import models, schemas
 from datetime import datetime, date
 
 def post_data_pemasukan(db: Session, pembayaran: schemas.Pembayaran):

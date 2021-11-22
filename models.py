@@ -1,7 +1,7 @@
 from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, Date, Float
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql.sqltypes import Float
-from .database import Base
+from database import Base
 
 
 class DataKeuangan(Base):
