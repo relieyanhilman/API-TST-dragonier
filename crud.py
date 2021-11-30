@@ -38,7 +38,7 @@ def post_supply_bahan_dasar(db: Session, supplyBahanDasar: schemas.SupplyBahanDa
     newRowPengeluaran = rowsPengeluaran + 1
     rowsDataKeuangan = db.query(models.DataKeuangan).count()
     newRowDataKeuangan = rowsDataKeuangan + 1
-    db_data_bahan = models.SupplyBahanDasar(idPengeluaran=newRowPengeluaran, idBahan=supplyBahanDasar.idBahan, harga=supplyBahanDasar.harga, kuantitas=supplyBahanDasar.kuantitas, idSupplier= supplyBahanDasar.idSupplier, totalHarga=(supplyBahanDasar.kuantitas)*(supplyBahanDasar.harga), tanggal=supplyBahanDasar.tanggal, satuan=supplyBahanDasar.satuan)
+    db_data_bahan = models.SupplyBahanDasar(idPengeluaran=newRowPengeluaran, idBahan=supplyBahanDasar.idBahan, harga=supplyBahanDasar.harga, kuantitas=supplyBahanDasar.kuantitas, idSupplier= supplyBahanDasar.idSupplier, totalHarga=(supplyBahanDasar.kuantitas)*(supplyBahanDasar.harga), tanggal=date.today().strftime("%Y-%m-%d"), satuan=supplyBahanDasar.satuan)
     db_data_keluar = models.Pengeluaran(idPengeluaran=newRowPengeluaran, deskripsi="Supply Bahan Dasar", jenis="Supply", total=(supplyBahanDasar.kuantitas)*(supplyBahanDasar.harga))
     db_data_keuangan_keluar = models.DataKeuangan(idDataKeuangan=newRowDataKeuangan, idDataPengeluaran= newRowPengeluaran, tanggal=supplyBahanDasar.tanggal)
     db.add(db_data_keluar)
